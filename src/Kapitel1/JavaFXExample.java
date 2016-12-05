@@ -32,7 +32,7 @@ public class JavaFXExample extends Application {
 		TextField t = new TextField();
 		hbox.getChildren().addAll(l, t);
 
-		// Kreiert einen Knoten und fügt diesen dem scene Graphen hinzu
+		// Kreiert einen Knopf und fügt diesen dem scene Graphen hinzu
 		Button b = new Button("Quit");
 		
 		// verwurzeln Bottom, in unserem Fall unten links, Bottom = Grund

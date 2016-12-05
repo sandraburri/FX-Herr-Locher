@@ -1,76 +1,90 @@
 package Kapitel1;
 
+import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class AdressformularVarianteVBoxHBox {
+public class AdressformularVarianteVBoxHBox extends Application{
 	@Override
 	public void start(Stage stage) throws Exception {
 		BorderPane root = new BorderPane();
-		
-		// Der Titel des "Fensters" wird damit erstell, oben links
+
+		// Der Titel des "Fensters" wird damit erstellt, oben links
 		// Wie macht man die Schrift fett?
 		root.setTop(new Label("Adresse"));
-		
-		// Die VBox wird erstellt
+
 		VBox vbox = new VBox(10);
-}
 
+		HBox hbox1 = new HBox(10);
 
-	// Die HBox 1 wird erstellt
-	HBox hbox1 = new HBox(10);
+		HBox hbox2 = new HBox(10);
 
-	// Dieser Befehl macht, dass der später definierte Inhalt immer in der
-	// Mitte des Zentrums zentriert bleibt
-	hbox1.setAlignment(Pos.CENTER);
+		HBox hbox3 = new HBox(10);
 
-	// Sie wird im Zentrum des Fensters erstellt
-	root.setCenter(hbox1);
+		HBox hbox4 = new HBox(10);
 
-	
+		// Für was genau sind diese beiden Zeilen? Für die Buttons habe ich
+		// AnchotPane verwendet... Löscht men aber diese beiden Zeilen kommt
+		// ein fast leeres Fenster ???
+		HBox hbox6 = new HBox(10);
+		root.setBottom(vbox);
 
-	// Sie wird "am Boden" des Fensters erstellt
-	root.setBottom(vbox);
+		Label l1 = new Label("Name");
+		TextField t1 = new TextField();
+		hbox1.getChildren().addAll(l1, t1);
 
-	// Die HBox 2 wird erstellt
-	HBox hbox2 = new HBox(10);
+		Label l2 = new Label("Vorname");
+		TextField t2 = new TextField();
+		hbox2.getChildren().addAll(l2, t2);
 
-	// Der Inhalt der HBox 1 wird erstellt diese ist im Zentrum des
-	// Fensters
-	Label s = new Label("Sekunden: ");
-	Label t = new Label("0:00");
-	hbox1.getChildren().addAll(s, t);
+		Label l3 = new Label("Strasse");
+		TextField t3 = new TextField();
+		hbox3.getChildren().addAll(l3, t3);
 
-	// Der Inhalt für die HBox2 wird erstellt diese ist "am Boden" des
-	// Fensters
-	Button a = new Button("Start");
-	Button b = new Button("Stop");
-	Button c = new Button("Reset");
-	
-	// Dieser Befehl macht, dass die drei Knöpfe immer in der HBox
-	// zentriert bleiben
-	hbox2.setAlignment(Pos.CENTER);
-	hbox2.getChildren().addAll(a, b, c);
+		Label l4 = new Label("PLZ");
+		TextField t4 = new TextField();
+		Label l5 = new Label("Ort");
+		TextField t5 = new TextField();
+		hbox4.getChildren().addAll(l4, t4, l5, t5);
+		
+		vbox.getChildren().addAll(hbox1, hbox2, hbox3, hbox4);
 
-	Label z = new Label("Zustand");
+		// Damit die Knöpfe unten rechts im Bild sind verwenden wir den
+		// AnchorPane
+		final AnchorPane root2 = new AnchorPane();
 
-	// Der VBox wird die Hbox und z zugefügt. Genau in dieser Reihenfolge
-	// von Oben nach Unten. Schreibt man keinen Befehl für das Zentrieren,
-	// Ist alles (Knopf, Label und Textfeld) automatisch links angeordnet.
-	vbox.getChildren().addAll(hbox2, z);
+		Button o = new Button("OK");
 
-	stage.setTitle("Stopwatch");
-	stage.setScene(new Scene(root, 400, 160));
-	stage.show();
-}
+		// setzt die Position des linken Knopfes
+		AnchorPane.setBottomAnchor(o, 10.0);
+		AnchorPane.setRightAnchor(o, 100.0);
 
-public static void main(String[] args) {
-	launch(args);
-}
+		Button c = new Button("Cancel");
+
+		// setzt die Position des rechten Knopfes
+		AnchorPane.setBottomAnchor(c, 10.0);
+		AnchorPane.setRightAnchor(c, 10.0);
+
+		// Der root2 wird die root sowie c und o hinzugefügt. Hier pielt die
+		// Reihenfolge für o und c keine Rolle für die Position, weil dies
+		// bereits
+		// oben definiert wird
+		root2.getChildren().addAll(root, c, o);
+
+		stage.setTitle("Stopwatch");
+		stage.setScene(new Scene(root2, 500, 250));
+		stage.show();
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 }
