@@ -11,6 +11,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.PopupWindow.AnchorLocation;
 import javafx.stage.Stage;
 
@@ -20,6 +22,9 @@ public class AdressformularGridPane extends Application{
 	final GridPane root = new GridPane();
 
 	final Label label1 = new Label("Adresse");
+	
+	// Diese Zeile "macht" Adresse FETT 
+	label1.setFont(Font.font("Dialog", FontWeight.BOLD, 16));
 	
 	// So wird der Platz dieses Labels bestimmt 0, = Spalte 0
 	// 0, = Zeile 0
@@ -58,7 +63,8 @@ public class AdressformularGridPane extends Application{
 	GridPane.setConstraints(hbox, 1, 4);
 	
 	// Der getter für diesen "Block"
-	root.getChildren().addAll(label1, label2, t2, label3, t3, label4, t4, label5, hbox);
+	root.getChildren().addAll(label1, label2, t2, label3, t3, label4, t4,
+			label5, hbox);
 	
 	// Damit die Knöpfe unten rechts im Bild sind verwenden wir den AnchorPane
 	final AnchorPane root2 = new AnchorPane();
@@ -82,7 +88,8 @@ public class AdressformularGridPane extends Application{
 	
 	// Set up the stage = Aufsetzen der Stage
 			stage.setTitle("Adressformular"); // Setzt de Titel in der Stage
-			stage.setScene(new Scene(root2, 500, 200)); // Setzt die Grösse der Szene
+			stage.setScene(new Scene(root2, 500, 200)); // Setzt die Grösse
+			// der Szene
 			stage.show(); // zeigt alles an
 		}
 

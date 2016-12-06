@@ -18,41 +18,58 @@ public class AdressformularVarianteVBoxHBox extends Application{
 		BorderPane root = new BorderPane();
 
 		// Der Titel des "Fensters" wird damit erstellt, oben links
-		// Wie macht man die Schrift fett?
-		root.setTop(new Label("Adresse"));
+		Label title = new Label("Adresse");
+		
+		// Diese Zeile "macht" Adresse FETT
+		title.setStyle("-fx-font-weight: bold;");
+		root.setTop(title);
 
 		VBox vbox = new VBox(10);
 
-		HBox hbox1 = new HBox(10);
+		HBox hbox1 = new HBox(20);
 
-		HBox hbox2 = new HBox(10);
+		HBox hbox2 = new HBox(20);
 
-		HBox hbox3 = new HBox(10);
+		HBox hbox3 = new HBox(20);
 
-		HBox hbox4 = new HBox(10);
+		HBox hbox4 = new HBox(20);
 
-		// Für was genau sind diese beiden Zeilen? Für die Buttons habe ich
-		// AnchotPane verwendet... Löscht men aber diese beiden Zeilen kommt
-		// ein fast leeres Fenster ???
-		HBox hbox6 = new HBox(10);
+		// Diese Zeile sagt wo die V-Box plaziert wird
 		root.setBottom(vbox);
 
 		Label l1 = new Label("Name");
+		
+		// Das Label l1 hat eine Länge von 100px
+		l1.setPrefWidth(100);
 		TextField t1 = new TextField();
+		
+		// Das Textfeld t1 hat eine Länge von 300px
+		t1.setPrefWidth(300);
 		hbox1.getChildren().addAll(l1, t1);
 
 		Label l2 = new Label("Vorname");
+		l2.setPrefWidth(100);
 		TextField t2 = new TextField();
+		t2.setPrefWidth(300);
 		hbox2.getChildren().addAll(l2, t2);
 
+		// Label Länge 100px Spacing Hbox 20px Textfeld Länge 300px = 420px
 		Label l3 = new Label("Strasse");
+		l3.setPrefWidth(100);
 		TextField t3 = new TextField();
+		t3.setPrefWidth(300);
 		hbox3.getChildren().addAll(l3, t3);
 
+		// PLZ Label 100px Spacing 20px PLZ Textfeld 50px Spacing 20px
+		// Ort Label 30px Spacing 20px Ort Textfeld 180px = 420px
 		Label l4 = new Label("PLZ");
+		l4.setPrefWidth(100);
 		TextField t4 = new TextField();
+		t4.setPrefWidth(50);
 		Label l5 = new Label("Ort");
+		l5.setPrefWidth(30);
 		TextField t5 = new TextField();
+		t5.setPrefWidth(180);
 		hbox4.getChildren().addAll(l4, t4, l5, t5);
 		
 		vbox.getChildren().addAll(hbox1, hbox2, hbox3, hbox4);
@@ -73,13 +90,12 @@ public class AdressformularVarianteVBoxHBox extends Application{
 		AnchorPane.setBottomAnchor(c, 10.0);
 		AnchorPane.setRightAnchor(c, 10.0);
 
-		// Der root2 wird die root sowie c und o hinzugefügt. Hier pielt die
+		// Der root2 wird die root sowie c und o hinzugefügt. Hier spielt die
 		// Reihenfolge für o und c keine Rolle für die Position, weil dies
-		// bereits
-		// oben definiert wird
+		// bereits oben definiert wird
 		root2.getChildren().addAll(root, c, o);
 
-		stage.setTitle("Stopwatch");
+		stage.setTitle("Adressformular");
 		stage.setScene(new Scene(root2, 500, 250));
 		stage.show();
 	}

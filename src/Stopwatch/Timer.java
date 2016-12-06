@@ -20,7 +20,7 @@ public class Timer implements Runnable {
 	/**
 	 * The stopwatch gui which is notified by the timer.
 	 */
-	private Stopwatch gui;
+	private Stopwatch2 gui;
 
 	/**
 	 * The thread which triggers the ticks. Is null if the timer is not running.
@@ -43,7 +43,7 @@ public class Timer implements Runnable {
 	 * @param gui
 	 *            the stopwatch to attach to the timer
 	 */
-	public final void attach(Stopwatch gui) {
+	public final void attach(Stopwatch2 gui) {
 		this.gui = gui;
 	}
 

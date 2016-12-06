@@ -8,9 +8,9 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		Stopwatch stopwatch = new Stopwatch();
+		Stopwatch2 stopwatch = new Stopwatch2();
 		stage.setTitle("Stopwatch");
-		stage.setScene(new Scene(stopwatch, 400, 160));
+		stage.setScene(new Scene (stopwatch, 400, 160));
 		stage.show();
 	}
 
