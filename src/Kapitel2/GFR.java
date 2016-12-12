@@ -36,7 +36,11 @@ public class GFR extends Application implements EventHandler<ActionEvent> {
 		final Label label1 = new Label("Alter [Jahre]:");
 		GridPane.setConstraints(label1, 0, 0);
 
-		// Dies ist eine "Auswahlbox" hier geht sie von 1-100
+		// Dies ist eine "Auswahlbox" hier geht sie von 1-99
+		// Mit getItems().add(Object) können wir Objekte (String, Int, ...) zur
+		// Auswahl hinzufügen, damit wir das nicht 100 mal machen müssen,
+		// machen wir einen Loop, der von 1-99(nicht 100!) zählt und immer die
+		// entsprechende Zahl zur Auswahl hinzufügt
 		combobox = new ComboBox();
 		for (int count = 1; count < 100; count++) {
 			combobox.getItems().add(count);
@@ -58,20 +62,27 @@ public class GFR extends Application implements EventHandler<ActionEvent> {
 		final Label label4 = new Label("Geschlecht:");
 		GridPane.setConstraints(label4, 0, 3);
 
-		// Hier werden die runden Knöpfe erstellt, welche sich schwarz färben
-		// wenn sie angewählt sind
 		HBox hbox = new HBox(10);
-		
+
+		// Ab hier werden die runden Knöpfe erstellt, welche sich schwarz
+		// färben wenn sie angewählt sind
+
 		// Die Knöfe müssen gruppiert werden
+		// Pro Gruppe kann maximal einer aktiv sein, dafür braucht es die
+		// ToggleGroup
 		tGroup = new ToggleGroup();
-		
+
 		// Der Knopf wird erstellt und benamst
 		button1 = new RadioButton("weiblich");
-		
+
 		// setUserData das machen wir, dass der button 1 unter dem Namen
 		// weiblich läuft und wir darauf zugreifen können
+		// Unter UserData kannst du beliebige Objekte (also beispielsweise auch
+		// int, double, account,...) speichern und mittels getter abfragen.
+		// Bei dieser Aufgabe dient es nur zur identifikation welcher
+		// Radiobutton aus der Togglegroup angewählt ist
 		button1.setUserData("weiblich");
-		
+
 		// hier wird der Knopf in die Gruppierung eingefügt
 		button1.setToggleGroup(tGroup);
 		button2 = new RadioButton("männlich");
@@ -105,10 +116,14 @@ public class GFR extends Application implements EventHandler<ActionEvent> {
 		else {
 			ccr = ((((140 - age) * weight) / (72 * scr)) * 0.85);
 		}
-		
-		
+
 		// Diese 2 Zeilen benutzen wir um das Resultat mit 2 Stellen nach dem
 		// Koma anzuzeigen
+		// Ausführlich: Wir rechenen das Resultat mal 100 und runden mittels
+		// Math.round auf eine ganze Zahl. Danach teilen wir durch 100 und
+		// erhalten somit eine Zahl mit 2 Stellen nach dem Komma.
+		// Beispiel: 3.759788 -> 3.759788*100 = 375.9788 -> Runden auf 376 ->
+		// 376/100 = 3.76
 		ccr = Math.round(ccr * 100);
 		ccr = ccr / 100;
 		return ccr;
@@ -119,7 +134,7 @@ public class GFR extends Application implements EventHandler<ActionEvent> {
 	}
 
 	@Override
-	
+
 	// Das ist der Actionshändler, hier wird definiert was passiert wenn wir
 	// den Knopf berechnen anklicken alle diese Umwandlungen müssen stattfinden,
 	// damit die Formel berechnet werden kann, alle Infos aus unseren diversen
@@ -127,21 +142,21 @@ public class GFR extends Application implements EventHandler<ActionEvent> {
 	// ausgegeben werden kann
 	public void handle(ActionEvent event) {
 		if (event.getSource() == this.button) {
-			
+
 			// Das Alter wird aus der ComboBox geholt und in einen Integer
 			// gecastet
 			age = (Integer) combobox.getValue();
-			
-			// Das Gewicht wird von einem Double in Text umgewandelt
+
+			// Das Gewicht wird von einem Text in einen Double umgewandelt, da
+			// Eingeben in einem TextField immer als String gespeichert werden
 			weight = Double.parseDouble(t2.getText());
-			
-			// Das Geschlecht vom angewählten Kreis und dessen UserData in
-			// einen String gecastet
+
+			// Die Userdata wird in den String gespeichert
 			gender = (String) tGroup.getSelectedToggle().getUserData();
-			
-			// Der scr wird von einem Double in Text umgewandelt
+
+			// Der scr wird von einem Text in Double umgewandelt
 			scr = Double.parseDouble(t3.getText());
-			
+
 			// Das Resultat soll hier ausgegeben werden setText
 			// (String -> Label = String .valueOf -> der Wert von
 			// (getCcr()) -> das ist der return Wert, welchen wir aus der

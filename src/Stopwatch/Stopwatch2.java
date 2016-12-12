@@ -19,7 +19,10 @@ import javafx.scene.layout.VBox;
 public class Stopwatch2 extends BorderPane implements EventHandler<ActionEvent> {
 
 	// Die folgenden 7 Zeilen sind Instanzvariablen
-	private Timer timer = new Timer(500);
+	// new Timer2(100); (100) das sind hunderstel Sekunden, bei 500 zählt es
+	// in 5er Schritten hoch bei 1000 immer 1 Sekunde ohne die Hundertstel
+	// zu berücksichtigen
+	private Timer2 timer = new Timer2(100);
 	private BorderPane root;
 	private Button a;
 	private Button b;
@@ -27,7 +30,7 @@ public class Stopwatch2 extends BorderPane implements EventHandler<ActionEvent> 
 	private Label t;
 	private Label z;
 
-	// Ab hier bis zum nächsten Kommentar ist der Konstruktor
+	// Ab hier bis Zeile 72 ist der Konstruktor
 	public Stopwatch2() {
 		timer.attach(this);
 		root = new BorderPane();
@@ -67,29 +70,24 @@ public class Stopwatch2 extends BorderPane implements EventHandler<ActionEvent> 
 
 	// Ab hier sind es Methoden
 	public void update() {
-		
-		// Die Thread Methode müssen wir schreiben, damit das Zählen nicht
-		// dauernd unterbrochen wird, weil ein andere Thread ansteht
-		Thread thread = new Thread(new Runnable() {
-			@Override
-			public void run() {
-				Platform.runLater(() -> {
-					t.setText(timer.getTimeString());
-				});
-			}
+		Platform.runLater(() -> {
+			t.setText(timer.getTimeString());
 		});
-		thread.start();
 	}
 
 	@Override
-	
+
 	// das ist der Actionshändler, da wird definiert was passiert wenn wir
 	// die einzelnen Knöpfe anklicken... Die Infos dazu sind in der Timerklasse
 	// zu finden
+	// Genauer: wir rufen die entsprechenden Methoden in der Timer-Klasse auf
+	// Im handler haben wir ein if-statement für jede Quelle der ausgelösten
+	// Aktion (sprich für jeden Knopf). Wir können danach alle Aktionen
+	// auflisten, welche beim Knopfdruck passieren sollen.
 	public void handle(ActionEvent event) {
 		if (event.getSource() == this.a) {
 			timer.start();
-			
+
 			// wenn der Knopf a gedrückt wird wechselt der Zustand unten links
 			// der Text dort passt sich quasi der Knopfaktion an
 			z.setText("läuft");

@@ -5,7 +5,7 @@ package Stopwatch;
  * stopped and reset. A timer notifies an attached {@code Stopwatch} about state
  * changes by calling the {@code update} method of the {@code Stopwatch}.
  */
-public class Timer implements Runnable {
+public class Timer2 implements Runnable {
 
 	/**
 	 * The number of ticks.
@@ -33,7 +33,7 @@ public class Timer implements Runnable {
 	 * @param interval
 	 *            the time interval (in milliseconds) of the timer
 	 */
-	public Timer(int interval) {
+	public Timer2(int interval) {
 		this.interval = interval;
 	}
 
