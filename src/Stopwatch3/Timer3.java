@@ -1,4 +1,4 @@
-package Stopwatch;
+package Stopwatch3;
 
 import java.util.Observable;
 

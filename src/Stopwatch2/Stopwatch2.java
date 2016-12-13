@@ -1,4 +1,4 @@
-package Stopwatch;
+package Stopwatch2;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;

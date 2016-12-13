@@ -1,8 +1,8 @@
-package Stopwatch;
+package Stopwatch4;
 
 import java.util.Observable;
 import java.util.Observer;
-
+import Stopwatch3.Timer3;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -13,17 +13,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-// Weiterführendes Projekt von Stopwatch 1 hier wird nur noch "Neues"
-// kommentiert
-
-// EventHandler<ActionEvent> muss hier implementiert werden, damit die Aktionen
-// weiter unten funktionieren. Man könnte dies auch eleganter lösen, siehe
-// Beschreibung auf der Folie 11
-public class Stopwatch3 extends BorderPane implements Observer,
+public class Stopwatch4 extends BorderPane implements Observer,
 EventHandler<ActionEvent> {
 
 	// Die folgenden 7 Zeilen sind Instanzvariablen
-	private Timer3 timer = new Timer3(100);
+	private Timer4 timer = new Timer4(100);
 	private BorderPane root;
 	private Button start;
 	private Button stop;
@@ -32,7 +26,7 @@ EventHandler<ActionEvent> {
 	private Label zustand;
 
 	// Ab hier bis zum nächsten Kommentar ist der Konstruktor
-	public Stopwatch3() {
+	public Stopwatch4() {
 		
 		// das ist neu, da verstehe ich nicht was das macht
 		this.timer.addObserver(this);

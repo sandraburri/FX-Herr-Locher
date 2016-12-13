@@ -1,4 +1,4 @@
-package Stopwatch;
+package Stopwatch2;
 
 /**
  * This class implements the functionality of a timer. A timer can be started,
