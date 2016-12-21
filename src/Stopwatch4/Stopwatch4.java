@@ -2,7 +2,6 @@ package Stopwatch4;
 
 import java.util.Observable;
 import java.util.Observer;
-import Stopwatch3.Timer3;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -26,9 +25,10 @@ EventHandler<ActionEvent> {
 	private Label zustand;
 
 	// Ab hier bis zum nächsten Kommentar ist der Konstruktor
-	public Stopwatch4() {
+	public Stopwatch4(final Timer4 timer) {
 		
-		// das ist neu, da verstehe ich nicht was das macht
+		// Bindet den Timer an das Objekt Observer
+		this.timer = timer;
 		this.timer.addObserver(this);
 		root = new BorderPane();
 
@@ -87,13 +87,7 @@ EventHandler<ActionEvent> {
 			if (timer.isRunning())
 				zustand.setText("läuft");
 			else {
-				zustand.setText("bereit");
-				
-// Irgend etwas ist bei uns falsch programmiert... Beim Dozenten ist es so, dass
-// er start drückt, dann stop und dann reset. wenn er reset gedrückt hat nach
-// dem stop heisst es bei ihm unten links dann auch resetet und nicht wie bei
-// uns bereit.... Müssten oder können wir das noch korrigieren? 
-
+				zustand.setText("bereit");				
 			}
 		}
 	}

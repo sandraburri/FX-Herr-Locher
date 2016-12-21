@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label text="To">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </Label>
+      <TextField />
+      <Label layoutX="10.0" layoutY="10.0" text="From">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </Label>
+      <TextField layoutX="10.0" layoutY="31.0" />
+      <Label layoutX="10.0" layoutY="62.0" text="Subject">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </Label>
+      <TextField layoutX="10.0" layoutY="31.0" />
+      <Label layoutX="10.0" layoutY="62.0" text="Message">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </Label>
+      <TextArea prefHeight="110.0" prefWidth="600.0" />
+      <Separator prefWidth="200.0">
+         <opaqueInsets>
+            <Insets top="5.0" />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
+      </Separator>
+      <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0">
+         <children>
+            <Label text="Login">
+               <HBox.margin>
+                  <Insets left="5.0" right="100.0" />
+               </HBox.margin>
+            </Label>
+            <Label text="Password">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+         <opaqueInsets>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </opaqueInsets>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="31.0" prefWidth="600.0">
+         <children>
+            <TextField>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin></TextField>
+            <PasswordField>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin></PasswordField>
+         </children>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+      </HBox>
+      <Button alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Send" textAlignment="CENTER">
+         <opaqueInsets>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </Button>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</VBox>

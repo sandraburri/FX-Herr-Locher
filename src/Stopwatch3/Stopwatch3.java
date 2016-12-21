@@ -38,7 +38,7 @@ EventHandler<ActionEvent> {
 	// Ab hier bis zum nächsten Kommentar ist der Konstruktor
 	public Stopwatch3() {
 		
-		// das ist neu, da verstehe ich nicht was das macht
+		// Bindet den Timer an das Objekt Observer
 		this.timer.addObserver(this);
 		root = new BorderPane();
 
@@ -98,19 +98,13 @@ EventHandler<ActionEvent> {
 				zustand.setText("läuft");
 			else {
 				zustand.setText("bereit");
-				
-// Irgend etwas ist bei uns falsch programmiert... Beim Dozenten ist es so, dass
-// er start drückt, dann stop und dann reset. wenn er reset gedrückt hat nach
-// dem stop heisst es bei ihm unten links dann auch resetet und nicht wie bei
-// uns bereit.... Müssten oder können wir das noch korrigieren? 
-
 			}
 		}
 	}
 
 	@Override
 	
-	// Observable o, Object arg das ist neu, da verstehe ich nicht was das macht
+	// In jedem Zustand werden die Werte an den Observer gemeldet
 	public void update(Observable o, Object arg) {
 		Platform.runLater(() -> {
 			clock.setText(timer.getTimeString());

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+// Hier wird das BoarderPane erstellt. Als erstes wähle ich im SceneBuilder
+// in den Containers was ich will, nach dem ich das AnchorPane gelöscht habe.
+// An allen Einstellungen nehme ich keine Veränderungen vor
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="Kapitel4.CharsTablesDataEditorController">
+
+// Danach suche ich mir in den Controls alles zusammen was ich brauche und
+// platziere das schon ungefähr so so ich es haben will, wenn alles dort ist
+// wo es sein muss beginne ich mit dem Layout
+   <top>
+      <Label alignment="TOP_LEFT" text="Data Editor"
+      BorderPane.alignment="TOP_LEFT">
+      
+      // Unter Properties kann ich bei Font die Grösse, Schriftart und ob fett
+      // oder normal bestimmen
+         <font>
+            <Font name="System Bold" size="54.0" />
+         </font>
+         
+         // Unter Layout kann ich die Position (Alignment)und das Margin und
+         // Padding definieren
+         <BorderPane.margin>
+            <Insets left="20.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+         
+         // Wenn ich will, dass in einem Textfeld eine Aktion passieren kann,
+         // muss ich dem eine ID verpassen, dass dann von der Klasse her darauf
+         // zugegriffen werden kann und es im Code überhaupt verwendet werden
+         // kann. Wenn ich das nicht mache ist es wie blind und kann nicht
+         // zugeordnet werden
+            <TextField fx:id="name" promptText="Name">
+               <HBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </HBox.margin>
+            </TextField>
+            <TextField fx:id="quantity" promptText="Quantity" />
+            
+            // Wenn ich will, dass bei einem Button etwas passiert, wenn ich
+            // den anklicke, dann muss ich bei Code bei On Action das so
+            // definieren, sonst passiert da gar nichts
+            <Button mnemonicParsing="false" onAction="#handleAdd" text="Add" />
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+   
+   // Die TableView hat 2 Spalten, die Grösse (Breite) muss ich für jede Spalte
+   // individuell definieren. Ansonsten bleibt rechts einfach noch Platz frei
+      <TableView opacity="0.72" prefHeight="200.0" prefWidth="200.0"
+      BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn maxWidth="500.0" minWidth="200.0" prefWidth="300.0"
+          text="Name" />
+          <TableColumn maxWidth="500.0" minWidth="200.0" prefWidth="300.0"
+          text="Quantity" />
+        </columns>
+         <BorderPane.margin>
+            <Insets left="20.0" right="20.0" />
+         </BorderPane.margin>
+      </TableView>
+   </center>
+</BorderPane>
