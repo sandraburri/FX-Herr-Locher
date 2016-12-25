@@ -6,32 +6,32 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label text="To">
          <VBox.margin>
             <Insets top="5.0" />
          </VBox.margin>
       </Label>
-      <TextField />
+      <TextField fx:id="to" />
       <Label layoutX="10.0" layoutY="10.0" text="From">
          <VBox.margin>
             <Insets top="5.0" />
          </VBox.margin>
       </Label>
-      <TextField layoutX="10.0" layoutY="31.0" />
+      <TextField fx:id="from" layoutX="10.0" layoutY="31.0" />
       <Label layoutX="10.0" layoutY="62.0" text="Subject">
          <VBox.margin>
             <Insets top="5.0" />
          </VBox.margin>
       </Label>
-      <TextField layoutX="10.0" layoutY="31.0" />
+      <TextField fx:id="subject" layoutX="10.0" layoutY="31.0" />
       <Label layoutX="10.0" layoutY="62.0" text="Message">
          <VBox.margin>
             <Insets top="5.0" />
          </VBox.margin>
       </Label>
-      <TextArea prefHeight="110.0" prefWidth="600.0" />
+      <TextArea fx:id="message" prefHeight="110.0" prefWidth="600.0" />
       <Separator prefWidth="200.0">
          <opaqueInsets>
             <Insets top="5.0" />
@@ -43,39 +43,42 @@
             <Insets top="5.0" />
          </padding>
       </Separator>
-      <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0">
+      <GridPane>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
             <Label text="Login">
-               <HBox.margin>
-                  <Insets left="5.0" right="100.0" />
-               </HBox.margin>
+               <GridPane.margin>
+                  <Insets bottom="10.0" />
+               </GridPane.margin>
             </Label>
-            <Label text="Password">
-               <HBox.margin>
-                  <Insets top="5.0" />
-               </HBox.margin>
+            <Label text="Password" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="10.0" />
+               </GridPane.margin>
             </Label>
-         </children>
-         <opaqueInsets>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </opaqueInsets>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="31.0" prefWidth="600.0">
-         <children>
-            <TextField>
-               <HBox.margin>
-                  <Insets right="20.0" />
-               </HBox.margin></TextField>
-            <PasswordField>
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin></PasswordField>
+            <TextField fx:id="login" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+            </TextField>
+            <PasswordField fx:id="password" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
+            </PasswordField>
          </children>
          <VBox.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            <Insets bottom="5.0" top="5.0" />
          </VBox.margin>
-      </HBox>
-      <Button alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Send" textAlignment="CENTER">
+      </GridPane>
+      <Button alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#send" text="Send" textAlignment="CENTER">
          <opaqueInsets>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </opaqueInsets>

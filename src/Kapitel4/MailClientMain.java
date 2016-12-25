@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class MainMailClient extends Application {
+public class MailClientMain extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
