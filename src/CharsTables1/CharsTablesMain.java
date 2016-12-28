@@ -1,4 +1,4 @@
-package Kapitel4;
+package CharsTables1;
 
 import javafx.application.Application;
 import javafx.stage.Stage;

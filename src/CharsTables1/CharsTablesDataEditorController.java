@@ -1,11 +1,9 @@
-package Kapitel4;
+package CharsTables1;
 
-
-import java.awt.TextField;
-import java.awt.event.HierarchyBoundsAdapter;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 
 public class CharsTablesDataEditorController {
 	

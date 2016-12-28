@@ -1,4 +1,4 @@
-package Kapitel4;
+package CharsTables1;
 
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class CharsTablesDataEditorStage extends Stage {
+	
+	//Diese ganze Klasse ist der Konstruktor
 
 	// Diese Zeile gehört immer hier hin. Im Main ist es mit @Override, hier
 	// jedoch so
@@ -22,15 +24,11 @@ public class CharsTablesDataEditorStage extends Stage {
 		// Hier wird eine Scene eröffnet und der Wurzel zugewiesen
 		Scene scene = new Scene(root);
 		
-		// das verstehe ich nicht was da passiert
-		scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-
 		stage.setTitle("Model Editor");
 		stage.setScene(scene);
 		
-		// ruft sich selber auf... Warum das? Zu was dient das? Hätte man diesen
-		// ganzen Code nicht in ein main oder in die andere Klasse verpacken
-		// können?
+		// ruft sich selber auf...  es wird die stage angezeigt. Spielt keine
+		// Rolle ob das hier ist oder im main (wie bei der Stopwatch...
 		stage.show();
 	}
 }

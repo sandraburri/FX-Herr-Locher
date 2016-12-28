@@ -1,44 +1,17 @@
 package Kapitel4;
 
-import java.awt.TextField;
 import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class MailClientController {
-	
-	// Diese Zeile gehört immer hier hin. Im Main ist es mit @Override, hier
-		// jedoch so
-		public MailClientController() throws IOException {
-
-			// Hier wird eine Stage eröffnet
-			Stage stage = new Stage();
-			
-			// Hier wird der Elternknoten dem FXMLLoader zugewiesen. Dadurch wird
-			// erreicht, dass die Daten bei ChartsTables.fxml abgeholt werden
-			Parent root = FXMLLoader.load(getClass().getResource("MailClient.fxml"));
-			
-			// Hier wird eine Scene eröffnet und der Wurzel zugewiesen
-			Scene scene = new Scene(root);
-			
-			// das verstehe ich nicht was da passiert
-			scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-
-			stage.setTitle("Mail Client");
-			stage.setScene(scene);
-			
-			// ruft sich selber auf... Warum das? Zu was dient das? Hätte man diesen
-			// ganzen Code nicht in ein main oder in die andere Klasse verpacken
-			// können?
-			stage.show();
-		}
-	}
-	
+		
 		@FXML
 		private TextField to;
 		
@@ -49,7 +22,7 @@ public class MailClientController {
 		private TextField subject;
 		
 		@FXML
-		private TextField message;
+		private TextArea message;
 		
 		@FXML
 		private TextField login;
@@ -71,3 +44,4 @@ public class MailClientController {
 		    System.out.println("Login: " + login.getText());
 		    System.out.println("Password: "+ password.getText());
 		   }
+}
